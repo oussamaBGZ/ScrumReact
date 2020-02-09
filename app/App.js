@@ -75,7 +75,7 @@ function App() {
             ...prevColumn,
             "Story": {
                 name: "Story",
-                items: data
+                items: [...prevColumn["Story"].items, todo]
             }
         }))
         e.currentTarget.reset();
