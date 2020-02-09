@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4";
-
+import './index.css'
 const data = JSON.parse(localStorage.getItem('TodoList')) || []
 let itemsFromBackend = data;
 
 const columnsFromBackend = {
-    "Requested": {
-        name: "Requested",
+    "Story": {
+        name: "Story",
         items: itemsFromBackend
     },
-    "To do": {
-        name: "To do",
+    "Not Started": {
+        name: "Not Started",
         items: []
     },
     "In Progress": {
@@ -73,17 +73,18 @@ function App() {
         console.log(columnsFromBackend)
         setColumns(prevColumn => ({
             ...prevColumn,
-            "Requested": {
-                name: "Requested",
+            "Story": {
+                name: "Story",
                 items: data
             }
         }))
+        e.currentTarget.reset();
     }
 
     return (
         <>
             <form onSubmit={handelSubmit}>
-                <input type="text" name="note" />
+                <input type="text" name="note" placeholder="Add your todo" />
             </form>
             <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
                 <DragDropContext
