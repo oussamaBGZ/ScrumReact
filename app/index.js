@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class App extends React.Component {
-    render() {
-        return (
-            <div>Hello World <p>nice</p></div>
-        )
-    }
+import App from './App';
+
+
+function Main() {
+    return (
+
+        <App />
+
+    )
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<Main />, document.getElementById('app'))

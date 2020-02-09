@@ -1,0 +1,19 @@
+.elementDrag{
+    height: 100px;
+    width: 100px;
+    background-color: lightcoral;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+.container > * {
+    flex: 1;
+}
+.board{
+    border-left: lightgreen;
+    border-right: lightgreen;
+    margin-left: 5px;
+    margin-right: 5px;
+}
