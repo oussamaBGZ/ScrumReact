@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4";
-import './index.css'
+// import './index.css';
 const data = JSON.parse(localStorage.getItem('TodoList')) || []
 let itemsFromBackend = data;
 
@@ -66,6 +66,7 @@ function App() {
 
     const handelSubmit = (e) => {
         e.preventDefault()
+        if (!e.target.note.value) return;
         const data = JSON.parse(localStorage.getItem('TodoList')) || []
         const todo = { id: uuid(), content: e.target.note.value }
         data.push(todo)
@@ -83,8 +84,8 @@ function App() {
 
     return (
         <>
-            <form onSubmit={handelSubmit}>
-                <input type="text" name="note" placeholder="Add your todo" />
+            <form onSubmit={handelSubmit} data-testid="submit-form">
+                <input type="text" name="note" placeholder="Add your todo" required />
             </form>
             <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
                 <DragDropContext
